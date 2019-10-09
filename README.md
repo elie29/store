@@ -9,7 +9,7 @@ A simple frontend store that manages application state using RxJS BehaviorSubjec
 
 ### What is a state?
 
-In its easiest way, a state is a snapshot of an application data at a specific time. Each time data is manipulated or changed, a new state is created and saved in the store. In our case, the state is represented by extending State interface as follow:
+In its easiest way, a state is a snapshot of an application data at a specific time. Whenever data is manipulated or changed, a new state is created and saved in the store. In our case, the state is represented by extending State interface as follow:
 
 ```TS
 interface BasicState extends State {
@@ -19,7 +19,7 @@ interface BasicState extends State {
 }
 ```
 
-An initial state should implement BasicState as follow:
+An initial state is a simple object that should implement BasicState as follow:
 
 ```TS
 const INITIAL_STATE: BasicState = {
@@ -69,13 +69,33 @@ export class BasicStore extends Store<BasicState> {
 
 Now BasicStore could be injected in any service or container. It could also possible to create just an instance to be shared across the application.
 
+### Store Management in Angular Service
+
+```TS
+@Injectable({
+  providedIn: 'root'
+})
+export class BasicStore extends Store<BasicState> {
+  constructor() {
+    super(INITIAL_STATE);
+  }
+}
+```
+
 ## Store API
 
 The store Api is very simple and contains few public methods:
 
-2. value: A getter for the current state deep cloned. Any manipulation of this value does not affect the store.
-3. get: Retrieve a specific key from the state: eg. get('author') or get('loading').
-4. set: Update a specific state key in the store: eg. set('loading', true).
-5. select: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next))
+2. **value**: A getter for the current state deep cloned. Any manipulation of this value does not affect the store.
+3. **get**: Retrieve a specific key from the state: eg. get('author') or get('loading').
+4. **set**: Update a specific state key in the store: eg. set('loading', true).
+5. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next))
 
 N.B.: Data passed or retrieved from the store is deep cloned. So any manipulation does not affect the store.
+
+## Dependencies
+
+The store management library depends on:
+
+1. RxJS 6.4.0
+2. lodash 4.7.15
