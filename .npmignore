@@ -1,0 +1,9 @@
+src
+tests
+jest.config.js
+tsconfig.js
+tsconfig.json
+.github
+.editorconfig
+.gitattributes
+.travis.yml

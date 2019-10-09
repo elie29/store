@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "outDir": "dist/",
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitUseStrict": true,
+    "experimentalDecorators": true,
+    "lib": ["dom", "esnext"],
+    "removeComments": true
+  },
+  "include": ["src/**/*.ts"]
+}

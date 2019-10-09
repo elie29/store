@@ -1,0 +1,46 @@
+{
+  "name": "@elie29/store",
+  "version": "1.0.1-beta.2",
+  "author": "Elie NEHME",
+  "description": "A simple store management for front-end applications",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elie29/store"
+  },
+  "bugs": {
+    "url": "https://github.com/elie29/store/issues"
+  },
+  "homepage": "https://github.com/elie29/store",
+  "keywords": [
+    "store",
+    "state",
+    "store management",
+    "state management",
+    "frontend store",
+    "frontend state"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "build": "rm -rf dist && npm run tsc",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "pub": "npm run build && npm publish"
+  },
+  "dependencies": {
+    "rxjs": "^6.4.0",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.141",
+    "coveralls": "^3.0.6",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  }
+}
