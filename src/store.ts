@@ -57,6 +57,9 @@ export abstract class Store<S extends State> {
     this.log(key);
   }
 
+  /**
+   * @param state State or slice of the state to patch.
+   */
   patch(state: Partial<S>): void {
     const slice = cloneDeep(state);
     this.store$.next({ ...this.store$.value, ...slice });
