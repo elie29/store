@@ -10,6 +10,7 @@ export declare abstract class Store<S extends State> {
     select<K extends keyof S>(key: K): Observable<S[K]>;
     get<K extends keyof S>(key: K): S[K];
     set<K extends keyof S>(key: K, value: S[K]): void;
+    patch(state: Partial<S>): void;
     reset(): void;
-    protected log(key: keyof S | 'DEFAULT_STATE'): void;
+    protected log(key: keyof S | 'DEFAULT_STATE' | 'PATCH_STATE'): void;
 }

@@ -39,6 +39,11 @@ var Store = (function () {
         this.store$.next(__assign(__assign({}, this.value), (_a = {}, _a[key] = lodash_1.cloneDeep(value), _a)));
         this.log(key);
     };
+    Store.prototype.patch = function (state) {
+        var slice = lodash_1.cloneDeep(state);
+        this.store$.next(__assign(__assign({}, this.store$.value), slice));
+        this.log('PATCH_STATE');
+    };
     Store.prototype.reset = function () {
         this.store$.next(__assign({}, this.defaultState));
         this.log('DEFAULT_STATE');
