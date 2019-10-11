@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#01](https://github.com/elie29/store/issues/1) Add patch method.
 
 ### Changed
 
