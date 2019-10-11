@@ -110,3 +110,4 @@ The store management library depends on:
 
 1. Increment version number in package.json and package-lock.json
 1. Run `npm run pub` then enter the 2FA code
+1. Commit, push and create a new github release
