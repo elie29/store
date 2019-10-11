@@ -105,3 +105,8 @@ The store management library depends on:
 
 1. RxJS 6.4.0
 2. lodash 4.7.15
+
+## Publish to npm repo
+
+1. Increment version number in package.json and package-lock.json
+1. Run `npm run pub` then enter the 2FA code
