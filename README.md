@@ -40,7 +40,7 @@ const INITIAL_STATE: BasicState = {
 
 To get started with the store, we have two options. We can either download the latest release or run npm install:
 
-- Download the [latest release](https://github.com/elie29/store/releases) and include it as a lib to our project
+- Download the [latest release](https://github.com/elie29/store/releases) and include it as a lib to the project
 - Run `npm install @eli29/store`
 
 Once the store dependency installed, we need to:
@@ -57,7 +57,7 @@ export class BasicStore extends Store<BasicState> {
 }
 ```
 
-By default, we don't log state changes, so if we want to see all the logs, we should pass true the super method:
+By default, we don't log state changes, so if we want to see all the logs, we should pass true to the super method:
 
 ```TS
 export class BasicStore extends Store<BasicState> {
@@ -67,7 +67,12 @@ export class BasicStore extends Store<BasicState> {
 }
 ```
 
-Now BasicStore could be injected in any service or container. It could also possible to create just an instance to be shared across the application.
+Now BasicStore could be injected in any service or container. It is also possible to :
+
+1. create an instance of the store in order to be shared across the application.
+2. create for each module its own instance of store.
+
+Store instances are isolated and does not share any data between them.
 
 ### Store Management in Angular Service
 
@@ -86,10 +91,11 @@ export class BasicStore extends Store<BasicState> {
 
 The store Api is very simple and contains few public methods:
 
-2. **value**: A getter for the current state deep cloned. Any manipulation of this value does not affect the store.
-3. **get**: Retrieve a specific key from the state: eg. get('author') or get('loading').
-4. **set**: Update a specific state key in the store: eg. set('loading', true).
-5. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next))
+1. **value**: A getter for the current deep-cloned state. Any manipulation of this value does not affect the store.
+1. **get**: Retrieve a specific key from the state: eg. get('author') or get('loading').
+1. **set**: Update a specific state key in the store: eg. set('loading', true).
+1. **patch**: Update the state or a slice of the state.
+1. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next))
 
 N.B.: Data passed or retrieved from the store is deep cloned. So any manipulation does not affect the store.
 
