@@ -169,6 +169,41 @@ describe('Test the store', () => {
     expect(value).not.toBe(store.value);
   });
 
+  it('should patch a slice of state', () => {
+    const value = store.value;
+
+    store.patch({
+      author: {
+        age: 15,
+        name: 'John'
+      }
+    });
+
+    // value and state has different content and reference
+    expect(value).not.toEqual(store.value);
+    expect(value).not.toBe(store.value);
+  });
+
+  it('should patch a slice of state and dispatch only changed values', () => {
+    spyOn(console, 'log');
+
+    store.select('loading').subscribe(next => console.log(next));
+    store.select('post').subscribe(next => console.log(next));
+
+    for (let i = 0; i < 10; i += 1) {
+      store.patch({
+        author: {
+          age: 15,
+          name: 'John'
+        },
+        post: { id: 15 }
+      });
+    }
+
+    // 1 for loading and 11 for post
+    expect(console.log).toHaveBeenCalledTimes(12);
+  });
+
   it('should not log changes when logChanges is false', () => {
     spyOn(console, 'log');
 

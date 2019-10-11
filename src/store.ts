@@ -57,6 +57,12 @@ export abstract class Store<S extends State> {
     this.log(key);
   }
 
+  patch(state: Partial<S>): void {
+    const slice = cloneDeep(state);
+    this.store$.next({ ...this.store$.value, ...slice });
+    this.log('PATCH_STATE');
+  }
+
   /**
    * Reset the store with the default state.
    */
@@ -65,7 +71,7 @@ export abstract class Store<S extends State> {
     this.log('DEFAULT_STATE');
   }
 
-  protected log(key: keyof S | 'DEFAULT_STATE'): void {
+  protected log(key: keyof S | 'DEFAULT_STATE' | 'PATCH_STATE'): void {
     if (this.logChanges) {
       console.log('Key =>', key, ',', 'Value => ', this.value);
     }
