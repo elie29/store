@@ -96,7 +96,8 @@ The store Api is very simple and contains few public methods:
 1. **get**: Retrieve a specific key from the state: eg. get('author') or get('loading').
 1. **set**: Update a specific state key in the store: eg. set('loading', true).
 1. **patch**: Update the state or a slice of the state.
-1. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next))
+1. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next)).
+1. **watch**: Watch and keep track on store changes.
 
 N.B.: Data passed or retrieved from the store is deep cloned. So any manipulation does not affect the store.
 
