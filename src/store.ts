@@ -39,6 +39,13 @@ export abstract class Store<S extends State> {
   }
 
   /**
+   * Watch store changes.
+   */
+  watch(): Observable<S> {
+    return this.store$.asObservable();
+  }
+
+  /**
    * Get a value from the current state.
    *
    * @param key A defined key in the application state.

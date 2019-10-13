@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { skip, tap } from 'rxjs/operators';
 
 import { Author, BasicLogStore, BasicStore, INITIAL_STATE, Post } from './mock';
 
@@ -220,6 +220,21 @@ describe('Test the store', () => {
 
     store.set('loading', true);
     store.reset();
+
+    expect(console.log).toHaveBeenCalledTimes(3);
+  });
+
+  it('should watch for state changes', () => {
+    spyOn(console, 'log');
+
+    store
+      .watch()
+      .pipe(skip(1))
+      .subscribe(next => console.log(next));
+
+    store.set('loading', false);
+    store.reset();
+    store.set('loading', true);
 
     expect(console.log).toHaveBeenCalledTimes(3);
   });
