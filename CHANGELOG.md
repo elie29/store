@@ -1,5 +1,4 @@
-Changelog
-=========
+# Changelog
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
@@ -11,7 +10,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- Nothing.
+- [#03](https://github.com/elie29/store/issues/3) Create peer dependencies.
 
 ### Deprecated
 
