@@ -42,6 +42,7 @@ To get started with the store, we have two options. We can either download the l
 
 - Download the [latest release](https://github.com/elie29/store/releases) and include it as a lib to the project
 - Run `npm install @eli29/store`
+- Optionally run `npm install rxjs lodash`
 
 Once the store dependency installed, we need to:
 
@@ -99,12 +100,18 @@ The store Api is very simple and contains few public methods:
 
 N.B.: Data passed or retrieved from the store is deep cloned. So any manipulation does not affect the store.
 
-## Dependencies
+## Peer Dependencies
 
 The store management library depends on:
 
-1. RxJS 6.4.0
-2. lodash 4.7.15
+1. RxJS ^6.3
+
+   - BehaviorSubject, Observable
+   - distinctUntilChanged, map, pluck
+
+2. lodash ^4.10
+
+   - cloneDeep
 
 ## Publish to npm repo
 

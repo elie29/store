@@ -30,9 +30,9 @@
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "pub": "npm run build && npm publish"
   },
-  "dependencies": {
-    "rxjs": "^6.4.0",
-    "lodash": "^4.17.15"
+  "peerDependencies": {
+    "rxjs": "^6.3",
+    "lodash": "^4.10"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
