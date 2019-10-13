@@ -28,7 +28,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "pub": "npm run build && npm publish"
+    "pub": "npm run build && npm publish --access public"
   },
   "peerDependencies": {
     "rxjs": "^6.3",
