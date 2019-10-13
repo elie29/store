@@ -44,7 +44,7 @@ To get started with the store, we have two options. We can either download the l
 - Run `npm install @eli29/store`
 - Optionally run `npm install rxjs lodash`
 
-Once the store dependency installed, we need to:
+Once the store dependencies installed, we need to:
 
 1. Define application state (cf. BasicState)
 2. Create initial state (cf. INITIAL_STATE)
