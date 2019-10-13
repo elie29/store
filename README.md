@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/elie29/store.svg?branch=master)](https://travis-ci.org/elie29/store)
 [![Coverage Status](https://coveralls.io/repos/github/elie29/store/badge.svg?branch=master)](https://coveralls.io/github/elie29/store?branch=master)
+[![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/elie29/store)
 
 ## Frontend Application Store
 
