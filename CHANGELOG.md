@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file, in reverse 
 ### Added
 
 - [#01](https://github.com/elie29/store/issues/1) Add patch method.
+- [#02](https://github.com/elie29/store/issues/2) Add watch method.
 
 ### Changed
 
