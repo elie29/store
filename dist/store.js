@@ -31,6 +31,9 @@ var Store = (function () {
     Store.prototype.select = function (key) {
         return this.store$.pipe(operators_1.pluck(key), operators_1.distinctUntilChanged(), operators_1.map(function (item) { return lodash_1.cloneDeep(item); }));
     };
+    Store.prototype.watch = function () {
+        return this.store$.asObservable();
+    };
     Store.prototype.get = function (key) {
         return lodash_1.cloneDeep(this.value[key]);
     };
