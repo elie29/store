@@ -23,4 +23,4 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#04](https://github.com/elie29/store/issues/4) watch method should return immutable state.
