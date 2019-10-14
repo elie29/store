@@ -6,7 +6,7 @@
 
 ## Frontend Application Store
 
-A simple frontend store that manages application state using RxJS BehaviorSubject. The purpose of this store is to provide a straightforward, simple and agnostic library to manage data in any frontend application that needs to share data among services, modules or containers. By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [loadash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat immutably the state, and any data manipulation outside the store, would not affect the store at all.
+A simple frontend store that manages application state using RxJS BehaviorSubject. The purpose of this store is to provide a straightforward, simple and agnostic library to manage data in any frontend application that needs to share data among services, modules or containers. By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [loadash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat the state immutably, and any data manipulation outside the store, would not affect the store at all.
 
 ### What is a state?
 
