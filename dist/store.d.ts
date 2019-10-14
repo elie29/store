@@ -1,11 +1,10 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-export interface State {
-}
+import { State, StoreSettings } from './settings';
 export declare abstract class Store<S extends State> {
     protected defaultState: S;
-    protected logChanges: boolean;
     protected store$: BehaviorSubject<S>;
-    constructor(defaultState: S, logChanges?: boolean);
+    protected settings: StoreSettings;
+    constructor(defaultState: S, settings?: Partial<StoreSettings>);
     readonly value: S;
     select<K extends keyof S>(key: K): Observable<S[K]>;
     watch(): Observable<S>;
