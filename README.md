@@ -6,7 +6,7 @@
 
 ## Frontend Application Store
 
-A simple frontend store that manages application state using RxJS BehaviorSubject. The purpose of this store is to provide a straightforward, simple and agnostic library to manage data in any frontend application that needs to share data among services, modules or containers. By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [loadash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat the state immutably, and any data manipulation outside the store, would not affect the store at all.
+A simple frontend store that manages application state using RxJS BehaviorSubject. The purpose of this store is to provide a straightforward, simple and agnostic library to manage data in any frontend application that needs to share data among services, modules or containers. By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [lodash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat the state immutably, and any data manipulation outside the store, would not affect the store at all.
 
 ### What is a state?
 
@@ -44,8 +44,8 @@ To get started with the store, we have two options. We can either download the l
 - Download the [latest release](https://github.com/elie29/store/releases) and include it as a lib to the project
 - Run `npm install @eli29/store`
 - Optionally run
-   - `npm install rxjs` : If it is not installed already
-   - `npm install lodash` : if you want to use cloneDeep and not installed already
+  - `npm install rxjs`: If it is not installed already
+  - `npm install lodash`: If you want to use cloneDeep and not installed already
 
 Once the store dependencies installed, we need to:
 
@@ -63,7 +63,7 @@ export class BasicStore extends Store<BasicState> {
 
 ### Settings
 
-By default, we don't log state changes and the default clone strategy function is cloneDeep. We can change these settings by provinding a [StoreSettings](./src/settings.ts) to the constructor as follow:
+By default, we don't log state changes and the default clone strategy function is cloneDeep. We can change these settings by providing a [StoreSettings](./src/settings.ts) to the constructor as follow:
 
 ```TS
 export class BasicStore extends Store<BasicState> {
