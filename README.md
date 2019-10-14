@@ -10,7 +10,7 @@ A simple frontend store that manages application state using RxJS BehaviorSubjec
 
 ### What is a state?
 
-In its easiest way, a state is a snapshot of an application data at a specific time. Whenever data is manipulated or changed, a new state is created and saved in the store. In our case, the state is represented by extending State interface as follow:
+In its easiest way, a state is a snapshot of an application data at a specific time. Whenever data is manipulated or changed, a new state is created and saved in the store. In our case, the state is represented by extending [State](./src/settings.ts) interface as follow:
 
 ```TS
 interface BasicState extends State {
