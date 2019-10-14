@@ -1,7 +1,14 @@
 import { Subscription } from 'rxjs';
 import { skip, tap } from 'rxjs/operators';
 
-import { Author, BasicLogStore, BasicStore, INITIAL_STATE, Post } from './mock';
+import {
+  Author,
+  BasicLogStore,
+  BasicState,
+  BasicStore,
+  INITIAL_STATE,
+  Post
+} from './mock';
 
 describe('Test the store', () => {
   let store: BasicStore;
@@ -237,5 +244,26 @@ describe('Test the store', () => {
     store.set('loading', true);
 
     expect(console.log).toHaveBeenCalledTimes(3);
+  });
+
+  it('should watch for state changes with immutable data', () => {
+    const author: Author = {
+      age: 15,
+      name: 'John'
+    };
+
+    let state: BasicState;
+
+    store
+      .watch()
+      .pipe(skip(1))
+      .subscribe(next => (state = next));
+
+    store.set('author', author);
+
+    // modifying the state outside the store should not affect the store.
+    state.author.age = 25;
+
+    expect(state).not.toEqual(store.value);
   });
 });
