@@ -291,4 +291,25 @@ describe('Test the store', () => {
     expect(state).toEqual(store.value);
     expect(state).not.toBe(store.value);
   });
+
+  it('should notify subscriber with shallow clone', () => {
+    const store = new BasicShallowCloneStore();
+
+    const author: Author = {
+      age: 15,
+      name: 'John'
+    };
+
+    let data: Author;
+
+    store
+      .select('author')
+      .pipe(skip(1))
+      .subscribe(next => (data = next));
+
+    store.set('author', author);
+
+    expect(data).toEqual(author);
+    expect(data).not.toBe(author); // data is shallow cloned with set
+  });
 });
