@@ -1,3 +1,5 @@
+import { clone } from './clone';
+
 /**
  * A list of keys constituting the state of the application.
  */
@@ -11,5 +13,5 @@ export interface StoreSettings {
 // Shallow clone by default
 export const DEFAULT_SETTINGS: StoreSettings = {
   logChanges: false,
-  cloneStrategy: <T>(value: T): T => ({ ...value })
+  cloneStrategy: <T>(value: T): T => clone(value)
 };

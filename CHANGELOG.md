@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - [#03](https://github.com/elie29/store/issues/3) Create peer dependencies.
 - [#05](https://github.com/elie29/store/issues/5) Do not depend directly on lodash [BC].
+- [#06](https://github.com/elie29/store/issues/6) Enhance shallow copy of value.
 
 ### Deprecated
 
