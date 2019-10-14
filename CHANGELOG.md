@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file, in reverse 
 ### Changed
 
 - [#03](https://github.com/elie29/store/issues/3) Create peer dependencies.
-- [#05](https://github.com/elie29/store/issues/5) Do not depend directly on lodash.
+- [#05](https://github.com/elie29/store/issues/5) Do not depend directly on lodash [BC].
 
 ### Deprecated
 
