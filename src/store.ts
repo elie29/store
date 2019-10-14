@@ -1,29 +1,26 @@
-import { cloneDeep } from 'lodash';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, map, pluck } from 'rxjs/operators';
 
-/**
- * A list of keys constituting the state of the application.
- */
-export interface State {}
+import { DEFAULT_SETTINGS, State, StoreSettings } from './settings';
 
-/**
- * Immutable abstract store : states are set or get by using cloneDeep. Changing data outside the store
- * does not affect the store
- */
 export abstract class Store<S extends State> {
   protected store$ = new BehaviorSubject<S>(this.defaultState);
+  protected settings: StoreSettings;
 
-  constructor(protected defaultState: S, protected logChanges = false) {
+  constructor(
+    protected defaultState: S,
+    settings: Partial<StoreSettings> = {}
+  ) {
+    this.settings = { ...DEFAULT_SETTINGS, ...settings };
     // log store initialization
     this.log('DEFAULT_STATE');
   }
 
   /**
-   * Get the current state deep-cloned !
+   * Get the current state
    */
   get value(): S {
-    return cloneDeep(this.store$.value);
+    return this.settings.cloneStrategy(this.store$.value);
   }
 
   /**
@@ -34,7 +31,7 @@ export abstract class Store<S extends State> {
     return this.store$.pipe(
       pluck(key),
       distinctUntilChanged<S[K]>(),
-      map(item => cloneDeep(item))
+      map(item => this.settings.cloneStrategy(item))
     );
   }
 
@@ -42,7 +39,9 @@ export abstract class Store<S extends State> {
    * Watch store changes.
    */
   watch(): Observable<S> {
-    return this.store$.asObservable().pipe(map(next => cloneDeep(next)));
+    return this.store$
+      .asObservable()
+      .pipe(map(next => this.settings.cloneStrategy(next)));
   }
 
   /**
@@ -52,15 +51,18 @@ export abstract class Store<S extends State> {
    * @param deepClone if true, the value is deep-cloned
    */
   get<K extends keyof S>(key: K): S[K] {
-    return cloneDeep(this.value[key]);
+    return this.settings.cloneStrategy(this.value[key]);
   }
 
   /**
    * Set a value in the store for a specific key defined in the application state.
    */
   set<K extends keyof S>(key: K, value: S[K]): void {
-    // Immutable state change: shallow copy of the state and values
-    this.store$.next({ ...this.value, [key]: cloneDeep(value) });
+    // Shallow copy of the state to modify specific key
+    this.store$.next({
+      ...this.value,
+      [key]: this.settings.cloneStrategy(value)
+    });
     this.log(key);
   }
 
@@ -68,7 +70,7 @@ export abstract class Store<S extends State> {
    * @param state State or slice of the state to patch.
    */
   patch(state: Partial<S>): void {
-    const slice = cloneDeep(state);
+    const slice = this.settings.cloneStrategy(state);
     this.store$.next({ ...this.store$.value, ...slice });
     this.log('PATCH_STATE');
   }
@@ -82,7 +84,7 @@ export abstract class Store<S extends State> {
   }
 
   protected log(key: keyof S | 'DEFAULT_STATE' | 'PATCH_STATE'): void {
-    if (this.logChanges) {
+    if (this.settings.logChanges) {
       console.log('Key =>', key, ',', 'Value => ', this.value);
     }
   }

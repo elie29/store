@@ -13,6 +13,15 @@ export class BasicStore extends Store<BasicState> {
 
 export class BasicLogStore extends Store<BasicState> {
   constructor() {
-    super(INITIAL_STATE, true);
+    super(INITIAL_STATE, { logChanges: true });
+  }
+}
+
+export class BasicShallowCloneStore extends Store<BasicState> {
+  constructor() {
+    super(INITIAL_STATE, {
+      logChanges: true,
+      cloneStrategy: <T>(value: T): T => ({ ...value })
+    });
   }
 }

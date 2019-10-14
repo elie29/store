@@ -4,6 +4,7 @@ import { skip, tap } from 'rxjs/operators';
 import {
   Author,
   BasicLogStore,
+  BasicShallowCloneStore,
   BasicState,
   BasicStore,
   INITIAL_STATE,
@@ -265,5 +266,29 @@ describe('Test the store', () => {
     state.author.age = 25;
 
     expect(state).not.toEqual(store.value);
+  });
+
+  it('should return a shallow copy of the state', () => {
+    const store = new BasicShallowCloneStore();
+
+    const author: Author = {
+      age: 15,
+      name: 'John'
+    };
+
+    let state: BasicState;
+
+    store
+      .watch()
+      .pipe(skip(1))
+      .subscribe(next => (state = next));
+
+    store.set('author', author);
+
+    // modifying the state with shallow copy strategy affects the store
+    state.author.age = 25;
+
+    expect(state).toEqual(store.value);
+    expect(state).not.toBe(store.value);
   });
 });

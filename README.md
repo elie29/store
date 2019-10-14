@@ -59,12 +59,17 @@ export class BasicStore extends Store<BasicState> {
 }
 ```
 
-By default, we don't log state changes, so if we want to see all the logs, we should pass true to the super method:
+### Settings
+
+By default, we don't log state changes and the default clone strategy function is cloneDeep. We can change these settings by provinding a [StoreSettings](./src/settings.ts) to the constructor as follow:
 
 ```TS
 export class BasicStore extends Store<BasicState> {
   constructor() {
-    super(INITIAL_STATE, true);
+    super(INITIAL_STATE, {
+      logChanges: true,
+      cloneStrategy: <T>(value: T): T => ({ ...value })
+    });
   }
 }
 ```
@@ -93,14 +98,14 @@ export class BasicStore extends Store<BasicState> {
 
 The store Api is very simple and contains few public methods:
 
-1. **value**: A getter for the current deep-cloned state. Any manipulation of this value does not affect the store.
+1. **value**: A getter for the current cloned state. Any manipulation of this value does not affect the store.
 1. **get**: Retrieve a specific key from the state: eg. get('author') or get('loading').
 1. **set**: Update a specific state key in the store: eg. set('loading', true).
 1. **patch**: Update the state or a slice of the state.
 1. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next)).
 1. **watch**: Watch and keep track on store changes.
 
-N.B.: Data passed or retrieved from the store is deep cloned. So any manipulation does not affect the store.
+N.B.: By default, data passed or retrieved from the store is deep cloned. So any manipulation does not affect the store unless we implement another clone strategy.
 
 ## Peer Dependencies
 
