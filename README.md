@@ -87,7 +87,7 @@ Store instances are isolated and does not share any data between them.
 
 ```TS
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // or in a module specific providers
 })
 export class BasicStore extends Store<BasicState> {
   constructor() {
