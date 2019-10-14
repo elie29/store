@@ -1,5 +1,3 @@
-import { cloneDeep } from 'lodash';
-
 /**
  * A list of keys constituting the state of the application.
  */
@@ -10,7 +8,8 @@ export interface StoreSettings {
   cloneStrategy: <T>(value: T) => T;
 }
 
+// Shallow clone by default
 export const DEFAULT_SETTINGS: StoreSettings = {
   logChanges: false,
-  cloneStrategy: cloneDeep
+  cloneStrategy: <T>(value: T): T => ({ ...value })
 };

@@ -31,8 +31,7 @@
     "pub": "npm run build && npm publish --access public"
   },
   "peerDependencies": {
-    "rxjs": "^6.3",
-    "lodash": "^4.10"
+    "rxjs": "^6.3"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",

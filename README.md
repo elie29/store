@@ -6,7 +6,7 @@
 
 ## Frontend Application Store
 
-A simple frontend store that manages application state using RxJS BehaviorSubject and lodash cloneDeep function. The purpose of this store is to provide a straightforward, simple and agnostic library to manage data in any frontend application that needs to share data among services, modules or containers. Moreover, data as state is managed immutably in the store, so, changing accidentally data outside the store, does not affect the store at all.
+A simple frontend store that manages application state using RxJS BehaviorSubject. The purpose of this store is to provide a straightforward, simple and agnostic library to manage data in any frontend application that needs to share data among services, modules or containers. By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [loadash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat immutably the state, and any data manipulation outside the store, would not affect the store at all.
 
 ### What is a state?
 
@@ -43,7 +43,9 @@ To get started with the store, we have two options. We can either download the l
 
 - Download the [latest release](https://github.com/elie29/store/releases) and include it as a lib to the project
 - Run `npm install @eli29/store`
-- Optionally run `npm install rxjs lodash`
+- Optionally run
+   - `npm install rxjs` : If it is not installed already
+   - `npm install lodash` : if you want to use cloneDeep and not installed already
 
 Once the store dependencies installed, we need to:
 
@@ -105,7 +107,7 @@ The store Api is very simple and contains few public methods:
 1. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next)).
 1. **watch**: Watch and keep track on store changes.
 
-N.B.: By default, data passed or retrieved from the store is deep cloned. So any manipulation does not affect the store unless we implement another clone strategy.
+N.B.: By default, data passed or retrieved from the store is **NOT** deep cloned. So any manipulation of data DOES affect the store unless we implement lodash cloneDeep function which is highly recommended.
 
 ## Peer Dependencies
 
@@ -116,7 +118,7 @@ The store management library depends on:
    - BehaviorSubject, Observable
    - distinctUntilChanged, map, pluck
 
-2. lodash ^4.10
+2. lodash [recommended but not required]
 
    - cloneDeep
 

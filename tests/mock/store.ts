@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash';
+
 import { Store } from '../../src';
 import { BasicState, INITIAL_STATE } from './state';
 
@@ -7,7 +9,7 @@ import { BasicState, INITIAL_STATE } from './state';
  */
 export class BasicStore extends Store<BasicState> {
   constructor() {
-    super(INITIAL_STATE);
+    super(INITIAL_STATE, { cloneStrategy: cloneDeep });
   }
 }
 
@@ -19,9 +21,6 @@ export class BasicLogStore extends Store<BasicState> {
 
 export class BasicShallowCloneStore extends Store<BasicState> {
   constructor() {
-    super(INITIAL_STATE, {
-      logChanges: true,
-      cloneStrategy: <T>(value: T): T => ({ ...value })
-    });
+    super(INITIAL_STATE);
   }
 }

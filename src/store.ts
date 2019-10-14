@@ -48,7 +48,6 @@ export abstract class Store<S extends State> {
    * Get a value from the current state.
    *
    * @param key A defined key in the application state.
-   * @param deepClone if true, the value is deep-cloned
    */
   get<K extends keyof S>(key: K): S[K] {
     return this.settings.cloneStrategy(this.value[key]);
