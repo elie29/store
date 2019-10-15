@@ -6,8 +6,11 @@
 
 ## Frontend Application Store
 
-A simple frontend store that manages application state using RxJS BehaviorSubject. The main purpose is to provide a straightforward, simple and agnostic library to manage data in any frontend application where sharing state among services, modules or containers is desired.
+A simple frontend store that manages application state using RxJS BehaviorSubject. The main purpose is to provide a straightforward, simple and agnostic library for any frontend application where sharing data among services, modules or containers is desired.
+
 By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [lodash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat the state immutably, and any data manipulation outside the store, would not affect the store at all.
+
+The image below illustrates the appropriate one-way dataflow implied by the store:
 
 ![Store Management](./store.jpg)
 
@@ -23,7 +26,7 @@ interface BasicState extends State {
 }
 ```
 
-An initial state is a simple object that should implement BasicState as follow:
+An initial state is a simple object that implements BasicState as follow:
 
 ```TS
 const INITIAL_STATE: BasicState = {
@@ -45,7 +48,13 @@ const INITIAL_STATE: BasicState = {
 To get started with the store, we have two options. We can either download the latest release or run npm install:
 
 - Download the [latest release](https://github.com/elie29/store/releases) and include it as a lib to the project
+
+Or:
+
 - Run `npm install @eli29/store`
+
+Then:
+
 - Optionally run
   - `npm install rxjs`: If it is not installed already
   - `npm install lodash`: If you want to use cloneDeep and not installed already
@@ -73,7 +82,7 @@ export class BasicStore extends Store<BasicState> {
   constructor() {
     super(INITIAL_STATE, {
       logChanges: true,
-      cloneStrategy: <T>(value: T): T => ({ ...value })
+      cloneStrategy: cloneDeep // or other techniques
     });
   }
 }
@@ -81,10 +90,10 @@ export class BasicStore extends Store<BasicState> {
 
 Now BasicStore could be injected in any service or container. It is also possible to :
 
-1. create an instance of the store in order to be shared across the application.
-2. create for each module its own instance of store.
+1. Create an instance of the store in order to be shared across the application.
+2. Create for each module its own instance of store.
 
-Store instances are isolated and does not share any data between them.
+Store instances are isolated and **DOES NOT share** any data between them.
 
 ### Store Management in Angular Service
 
@@ -103,12 +112,12 @@ export class BasicStore extends Store<BasicState> {
 
 The store API is very simple and contains few public methods:
 
-1. **value**: A getter for the current cloned state. Any manipulation of this value does not affect the store.
-1. **get**: Retrieve a specific key from the state: eg. get('author') or get('loading').
-1. **set**: Update a specific state key in the store: eg. set('loading', true).
-1. **patch**: Update the state or a slice of the state.
-1. **select**: Watch for a value change of a specific key in the store. It returns an observable of read-only data. eg. select('author').subscribe(next => console.log(next)).
-1. **watch**: Watch and keep track on store changes.
+1. **value**: A getter for the current cloned state.
+1. **get**: Retrieves a specific key from the state: eg. get('author') or get('loading').
+1. **set**: Updates a specific state key in the store: eg. set('loading', true).
+1. **patch**: Updates the state or a slice of the state.
+1. **select**: Watches for a value change of a specific key in the store. It returns an observable of read-only data: eg. select('author').subscribe(next => console.log(next)).
+1. **watch**: Watches and keeps track on store changes.
 
 N.B.: By default, data passed or retrieved from the store is **NOT** deep cloned. So any manipulation of data DOES affect the store unless we implement lodash cloneDeep function which is highly recommended.
 
