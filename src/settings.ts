@@ -1,7 +1,7 @@
 import { clone } from './clone';
 
 /**
- * A list of keys constituting the state of the application.
+ * A list of keys constituting the state (data model) of the application, module ot service.
  */
 export interface State {}
 
