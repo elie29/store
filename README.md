@@ -6,7 +6,8 @@
 
 ## Frontend Application Store
 
-A simple frontend store that manages application state using RxJS BehaviorSubject. The purpose of this store is to provide a straightforward, simple and agnostic library to manage data in any frontend application that needs to share data among services, modules or containers. By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [lodash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat the state immutably, and any data manipulation outside the store, would not affect the store at all.
+A simple frontend store that manages application state using RxJS BehaviorSubject. The main purpose is to provide a straightforward, simple and agnostic library to manage data in any frontend application where sharing state among services, modules or containers is desired.
+By default, the store uses a shallow clone version of the state. However, we can provide another cloning strategy (eg. [lodash cloneDeep](https://lodash.com/docs/4.17.15#cloneDeep)) so the store would treat the state immutably, and any data manipulation outside the store, would not affect the store at all.
 
 ![Store Management](./store.jpg)
 
@@ -100,13 +101,13 @@ export class BasicStore extends Store<BasicState> {
 
 ## Store API
 
-The store Api is very simple and contains few public methods:
+The store API is very simple and contains few public methods:
 
 1. **value**: A getter for the current cloned state. Any manipulation of this value does not affect the store.
 1. **get**: Retrieve a specific key from the state: eg. get('author') or get('loading').
 1. **set**: Update a specific state key in the store: eg. set('loading', true).
 1. **patch**: Update the state or a slice of the state.
-1. **select**: Watch for a value change of a specific key in the store. It returns an observable of readonly data. eg. select('author').subscribe(next => console.log(next)).
+1. **select**: Watch for a value change of a specific key in the store. It returns an observable of read-only data. eg. select('author').subscribe(next => console.log(next)).
 1. **watch**: Watch and keep track on store changes.
 
 N.B.: By default, data passed or retrieved from the store is **NOT** deep cloned. So any manipulation of data DOES affect the store unless we implement lodash cloneDeep function which is highly recommended.
