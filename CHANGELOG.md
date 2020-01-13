@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## V1.0.3 - 2020-01-13
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- [revert #07] Update dev dependencies.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## V1.0.2 - 2020-01-13
 
 ### Added
