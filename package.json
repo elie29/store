@@ -34,14 +34,14 @@
     "rxjs": "^6.3"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/lodash": "^4.14.141",
-    "coveralls": "^3.0.6",
+    "@types/jest": "^24.0.25",
+    "@types/lodash": "^4.14.149",
+    "coveralls": "^3.0.9",
     "jest": "^24.9.0",
     "lodash": "^4.10",
-    "rxjs": "^6.3",
-    "ts-jest": "^24.1.0",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "rxjs": "^6.5.4",
+    "ts-jest": "^24.3.0",
+    "ts-node": "^8.6.1",
+    "typescript": "^3.7.4"
   }
 }
