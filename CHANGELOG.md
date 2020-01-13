@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## V1.0.2 - TBD
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- [#07](https://github.com/elie29/store/issues/7) Update dev dependencies.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## V1.0.1 - 2019-10-15
 
 ### Added
