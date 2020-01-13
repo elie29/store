@@ -5,7 +5,7 @@ export declare abstract class Store<S extends State> {
     protected store$: BehaviorSubject<S>;
     protected settings: StoreSettings;
     constructor(defaultState: S, settings?: Partial<StoreSettings>);
-    get value(): S;
+    readonly value: S;
     select<K extends keyof S>(key: K): Observable<S[K]>;
     watch(): Observable<S>;
     get<K extends keyof S>(key: K): S[K];
