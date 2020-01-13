@@ -51,7 +51,7 @@ To get started with the store, we have two options. We can either download the l
 
 Or:
 
-- Run `npm install @eli29/store`
+- Run `npm install @elie29/store`
 
 Then:
 
