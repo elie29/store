@@ -39,9 +39,7 @@ export abstract class Store<S extends State> {
    * Watch store changes.
    */
   watch(): Observable<S> {
-    return this.store$
-      .asObservable()
-      .pipe(map(next => this.settings.cloneStrategy(next)));
+    return this.store$.pipe(map(next => this.settings.cloneStrategy(next)));
   }
 
   /**
