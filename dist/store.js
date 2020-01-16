@@ -34,9 +34,7 @@ var Store = (function () {
     };
     Store.prototype.watch = function () {
         var _this = this;
-        return this.store$
-            .asObservable()
-            .pipe(operators_1.map(function (next) { return _this.settings.cloneStrategy(next); }));
+        return this.store$.pipe(operators_1.map(function (next) { return _this.settings.cloneStrategy(next); }));
     };
     Store.prototype.get = function (key) {
         return this.settings.cloneStrategy(this.value[key]);
