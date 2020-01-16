@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## V1.0.5 - TBD
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- [#08](https://github.com/elie29/store/issues/8) asObservable along with pipe operator is not needed.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## V1.0.4 - 2020-01-13
 
 ### Added
