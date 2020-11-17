@@ -134,6 +134,10 @@ The store management library depends on:
 
    - cloneDeep
 
+3. Typescript 3.6.5
+
+   - store tested with angular 8
+
 ## Publish to npm repo
 
 1. Fix date release in CHANGELOG.md
