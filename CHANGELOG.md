@@ -22,7 +22,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#11](https://github.com/elie29/store/pull/11) Bump handlebars from 4.4.3 to 4.7.6
+- [#10](https://github.com/elie29/store/pull/10) Bump lodash from 4.17.15 to 4.17.19
+- [#09](https://github.com/elie29/store/pull/9) Bump acorn from 5.7.3 to 5.7.4
 
 ## V1.0.5 - 2020-01-16
 
