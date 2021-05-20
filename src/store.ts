@@ -17,7 +17,7 @@ export abstract class Store<S extends State> {
   }
 
   /**
-   * Get the current state
+   * Clone and get the current state
    */
   get value(): S {
     return this.settings.cloneStrategy(this.store$.value);
@@ -31,7 +31,7 @@ export abstract class Store<S extends State> {
     return this.store$.pipe(
       pluck(key),
       distinctUntilChanged<S[K]>(),
-      map(item => this.settings.cloneStrategy(item))
+      map((item) => this.settings.cloneStrategy(item))
     );
   }
 
@@ -39,7 +39,7 @@ export abstract class Store<S extends State> {
    * Watch store changes.
    */
   watch(): Observable<S> {
-    return this.store$.pipe(map(next => this.settings.cloneStrategy(next)));
+    return this.store$.pipe(map((next) => this.settings.cloneStrategy(next)));
   }
 
   /**
@@ -57,8 +57,8 @@ export abstract class Store<S extends State> {
   set<K extends keyof S>(key: K, value: S[K]): void {
     // Shallow copy of the state to modify specific key
     this.store$.next({
-      ...this.value,
-      [key]: this.settings.cloneStrategy(value)
+      ...this.store$.value,
+      [key]: this.settings.cloneStrategy(value),
     });
     this.log(key);
   }

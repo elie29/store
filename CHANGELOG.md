@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#16](https://github.com/elie29/store/issues/16) Set using store value
 
 ## V1.0.6 - 2020-11-17
 
