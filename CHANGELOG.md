@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- Nothing.
+- [#17](https://github.com/elie29/store/issues/17) Update package.json
 
 ### Deprecated
 
