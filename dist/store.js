@@ -41,7 +41,7 @@ var Store = (function () {
     };
     Store.prototype.set = function (key, value) {
         var _a;
-        this.store$.next(__assign(__assign({}, this.value), (_a = {}, _a[key] = this.settings.cloneStrategy(value), _a)));
+        this.store$.next(__assign(__assign({}, this.store$.value), (_a = {}, _a[key] = this.settings.cloneStrategy(value), _a)));
         this.log(key);
     };
     Store.prototype.patch = function (state) {
