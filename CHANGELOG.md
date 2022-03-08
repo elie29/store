@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## V1.1.0-alpha - 2022-03-08
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- [#20](https://github.com/elie29/store/issues/20) Use ES6 for module and target generated code.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## V1.0.7 - 2021-05-22
 
 ### Added

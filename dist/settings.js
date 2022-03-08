@@ -1,7 +1,6 @@
-Object.defineProperty(exports, "__esModule", { value: true });
-var clone_1 = require("./clone");
-exports.DEFAULT_SETTINGS = {
+import { clone } from './clone';
+export const DEFAULT_SETTINGS = {
     logChanges: false,
-    cloneStrategy: function (value) { return clone_1.clone(value); }
+    cloneStrategy: (value) => clone(value)
 };
 //# sourceMappingURL=settings.js.map
