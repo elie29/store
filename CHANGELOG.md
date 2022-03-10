@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## V1.1.0 - 2022-03-10
+
 ## V1.1.0-alpha - 2022-03-08
 
 ### Added
