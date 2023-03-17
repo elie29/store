@@ -2,9 +2,30 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## V1.1.0 - 2022-03-10
+## V2.0.0 - 2023-03-17
 
-## V1.1.0-alpha - 2022-03-08
+### Added
+
+- Nothing.
+
+### Changed
+
+- package.json updated and tested with node 12, 14, 16 and 18
+- [#26](https://github.com/elie29/store/issues/26) [BC] RxJS 7.8.0 compliant
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
+## V1.1.0 - 2022-03-10
 
 ### Added
 
