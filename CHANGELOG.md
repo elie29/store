@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- package.json updated and tested with node 14, 16 and 18
+- package.json updated and tested with node 12, 14, 16 and 18
 - [#26](https://github.com/elie29/store/issues/26) [BC] RxJS 7.8.0 compliant
 
 ### Deprecated
