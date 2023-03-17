@@ -1,6 +1,6 @@
 # Store Management
 
-[![Build Status](https://travis-ci.org/elie29/store.svg?branch=master)](https://travis-ci.org/elie29/store)
+[![Build Status](https://github.com/elie29/store/actions/workflows/npm-build.yml/badge.svg)](https://github.com/elie29/store/)
 [![Coverage Status](https://coveralls.io/repos/github/elie29/store/badge.svg?branch=master)](https://coveralls.io/github/elie29/store?branch=master)
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/elie29/store)
 
@@ -125,7 +125,7 @@ N.B.: By default, data passed or retrieved from the store is **NOT** deep cloned
 
 The store management library depends on:
 
-1. RxJS ^6.3
+1. RxJS ^7.0
 
    - BehaviorSubject, Observable
    - distinctUntilChanged, map, pluck
@@ -134,9 +134,9 @@ The store management library depends on:
 
    - cloneDeep
 
-3. Typescript 3.6.5
+3. Typescript 4.9.5
 
-   - store tested with angular 8
+   - store tested with angular
 
 ## Publish to npm repo
 
