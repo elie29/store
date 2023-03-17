@@ -22,11 +22,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install Dependancies
+      - name: Install Dependencies
         run: npm install
 
       - name: Build TSC
         run: npm run tsc
+
+      - name: Cat store.d.ts
+        run: cat dist/store.d.ts
 
       - name: Test & covers
         run: npm run coveralls
