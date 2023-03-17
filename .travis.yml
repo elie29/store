@@ -3,9 +3,13 @@ node_js:
   - '8'
   - '10'
   - '12'
+  - '14'
+  - '16'
+  - '18'
 branches:
   only:
     - master
+    - feature/*
 cache:
   directories:
     - node_modules

@@ -125,7 +125,7 @@ N.B.: By default, data passed or retrieved from the store is **NOT** deep cloned
 
 The store management library depends on:
 
-1. RxJS ^6.3
+1. RxJS ^7.0
 
    - BehaviorSubject, Observable
    - distinctUntilChanged, map, pluck
@@ -134,9 +134,9 @@ The store management library depends on:
 
    - cloneDeep
 
-3. Typescript 3.6.5
+3. Typescript 4.9.5
 
-   - store tested with angular 8
+   - store tested with angular
 
 ## Publish to npm repo
 
