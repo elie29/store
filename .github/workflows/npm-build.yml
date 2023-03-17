@@ -31,5 +31,6 @@ jobs:
       - name: Test & covers
         run: npm run coveralls
 
-      - name: Coveralls
+      - name: Coveralls publish on 18.x only
+        if: matrix.node-version == '18.x'
         uses: coverallsapp/github-action@v1
