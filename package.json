@@ -37,7 +37,7 @@
     "@types/jest": "^26.0",
     "@types/lodash": "^4.14.191",
     "coveralls": "^3.1.1",
-    "jest": "^26.0",
+    "jest": "^29.7",
     "lodash": "^4.17",
     "rxjs": "^7.0",
     "ts-jest": "^26.0",
