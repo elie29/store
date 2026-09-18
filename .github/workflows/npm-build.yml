@@ -12,18 +12,19 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x, 18.x]
+        node-version: [20.x, 22.x, 24.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build TSC
         run: npm run tsc
@@ -31,9 +32,9 @@ jobs:
       - name: Cat store.d.ts
         run: cat dist/store.d.ts
 
-      - name: Test & covers
-        run: npm run coveralls
+      - name: Test & coverage
+        run: npm run test:coverage
 
-      - name: Coveralls publish on 18.x only
-        if: matrix.node-version == '18.x'
-        uses: coverallsapp/github-action@v1
+      - name: Coveralls publish on 24.x only
+        if: matrix.node-version == '24.x'
+        uses: coverallsapp/github-action@v2
