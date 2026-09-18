@@ -134,7 +134,7 @@ The store management library depends on:
 
    - cloneDeep
 
-3. Typescript 4.9.5
+3. Typescript 5.9.3
 
    - store tested with angular
 

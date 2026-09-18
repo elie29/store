@@ -13,5 +13,5 @@ export interface StoreSettings {
 // Shallow clone by default
 export const DEFAULT_SETTINGS: StoreSettings = {
   logChanges: false,
-  cloneStrategy: <T>(value: T): T => clone(value) as T
+  cloneStrategy: <T>(value: T): T => clone(value)
 };

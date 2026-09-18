@@ -1,1 +1,1 @@
-export declare const clone: (value: any) => any;
+export declare const clone: <T>(value: T) => T;

@@ -22,6 +22,7 @@ describe('Test the store', () => {
 
   afterEach(() => {
     subscription.unsubscribe();
+    jest.restoreAllMocks();
   });
 
   it('should have default state', () => {
@@ -193,7 +194,7 @@ describe('Test the store', () => {
   });
 
   it('should patch a slice of state and dispatch only changed values', () => {
-    spyOn(console, 'log');
+    jest.spyOn(console, 'log').mockImplementation(() => undefined);
 
     store.select('loading').subscribe(next => console.log(next));
     store.select('post').subscribe(next => console.log(next));
@@ -213,7 +214,7 @@ describe('Test the store', () => {
   });
 
   it('should not log changes when logChanges is false', () => {
-    spyOn(console, 'log');
+    jest.spyOn(console, 'log').mockImplementation(() => undefined);
 
     store.set('loading', true);
     store.reset();
@@ -222,7 +223,7 @@ describe('Test the store', () => {
   });
 
   it('should log changes when logChanges is true', () => {
-    spyOn(console, 'log');
+    jest.spyOn(console, 'log').mockImplementation(() => undefined);
 
     const store = new BasicLogStore();
 
@@ -233,7 +234,7 @@ describe('Test the store', () => {
   });
 
   it('should watch for state changes', () => {
-    spyOn(console, 'log');
+    jest.spyOn(console, 'log').mockImplementation(() => undefined);
 
     store
       .watch()

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-09-18
+
+### Changed
+
+- Update dev dependencies: jest 30, ts-jest 29.4, `@types/jest` 30, TypeScript 5.9.3 and lodash 4.18; the public API and the `rxjs` peer dependency range are unchanged.
+- `clone` is now generic, `<T>(value: T) => T`, instead of `(value: any) => any`.
+
 ## [2.0.0] - 2023-03-17
 
 ### Changed
@@ -84,7 +91,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `watch` now returns an immutable state ([#4](https://github.com/elie29/store/issues/4)).
 
-[Unreleased]: https://github.com/elie29/store/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/elie29/store/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/elie29/store/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/elie29/store/compare/v1.1.0...v2.0.0
 [1.1.0]: https://github.com/elie29/store/compare/1.0.7...v1.1.0
 [1.0.7]: https://github.com/elie29/store/compare/1.0.6...1.0.7
